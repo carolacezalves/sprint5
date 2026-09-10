@@ -88,11 +88,11 @@ A aplicação foi publicada utilizando o **Render**.
 
 ### Aplicação no Render
 
-**https://lecture-vc27.onrender.com**
+**https://lecture-m3d8.onrender.com/**
 
 ### Repositório no GitHub
 
-**https://github.com/SEU-USUARIO/SEU-REPOSITORIO**
+**https://github.com/carolacezalves/sprint5**
 
 ## Design da Aplicação
 
