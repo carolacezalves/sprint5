@@ -88,7 +88,7 @@ A aplicação foi publicada utilizando o **Render**.
 
 ### Aplicação no Render
 
-**https://SEU-APP.onrender.com/**
+**https://lecture-vc27.onrender.com**
 
 ### Repositório no GitHub
 
