@@ -51,7 +51,7 @@ vehicle-project/
 ├── notebooks/
 │   └── EDA.ipynb
 │
-└── .streamlit/
+└── streamlit/
     └── config.toml
 ```
 
