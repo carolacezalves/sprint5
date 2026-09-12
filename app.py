@@ -21,7 +21,7 @@ if car_data['is_4wd'].isna().any():
     valid_4wd_values = car_data['is_4wd'].dropna().unique() 
     
     if set(valid_4wd_values).issubset({0, 1}): 
-    car_data['is_4wd'] = car_data['is_4wd'].fillna(0)
+       car_data['is_4wd'] = car_data['is_4wd'].fillna(0)
 
 missing_after = car_data.isna().sum()
 
