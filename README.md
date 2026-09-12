@@ -89,6 +89,7 @@ A aplicação foi publicada utilizando o **Render**.
 ### Aplicação no Render
 
 **https://lecture-m3d8.onrender.com/**
+Por se tratar de um serviço free charge, o site pode levar um tempo de quase meio minuto para ser carregado, ele não está quebrado. Portanto tenha um pouco de paciência para carregar o mesmo.
 
 ### Repositório no GitHub
 
