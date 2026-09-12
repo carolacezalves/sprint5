@@ -2,9 +2,53 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 
-car_data = pd.read_csv('../vehicles_us.csv')
+st.set_page_config( page_title='Vehicle Sales Data Analysis', page_icon='🚗', layout='wide', initial_sidebar_state='collapsed' )
+
+car_data = pd.read_csv('vehicles_us.csv')
+
+missing_before = car_data.isna().sum()
+
+numeric_columns = [
+    'price', 'model_year', 'cylinders', 'odometer' 
+] 
+for column in numeric_columns:
+    car_data[column] = car_data[column].fillna(car_data[column].median() )
+
+if car_data['paint_color'].isna().any(): 
+    car_data['paint_color'] = car_data['paint_color'].fillna( 'unknown' )
+
+if car_data['is_4wd'].isna().any():
+    valid_4wd_values = car_data['is_4wd'].dropna().unique() 
+    
+    if set(valid_4wd_values).issubset({0, 1}): 
+    car_data['is_4wd'] = car_data['is_4wd'].fillna(0)
+
+missing_after = car_data.isna().sum()
+
 st.header('Vehicle Sales Data Analysis')
+
+missing_summary = missing_before[missing_before > 0] 
+
+if not missing_summary.empty: 
+    st.subheader('Missing Values Summary') 
+   
+    summary_df = pd.DataFrame({ 
+        'Column': missing_summary.index, 
+        'Missing Values Before Treatment': missing_summary.values, 
+        'Missing Values After Treatment': [ 
+            missing_after[column]
+            for column in missing_summary.index
+                                          ] }) 
+    
+    st.dataframe( 
+        summary_df, 
+        use_container_width=True, 
+        hide_index=True ) 
+    
+else: st.success('No missing values found in the dataset.')
+
 hist_button = st.button('Create Histogram') 
+
 if hist_button: st.write('Creating a histogram for the vehicle mileage distribution')
     
 fig = px.histogram( 
@@ -34,7 +78,9 @@ fig.update_layout(
     )
     
 st.plotly_chart(fig, use_container_width=True)
+
 scatter_button = st.button('Create Scatter Plot') 
+
 if scatter_button: st.write( 'Creating a scatter plot of vehicle price and mileage' )
     
 fig = px.scatter( 
