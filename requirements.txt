@@ -1,4 +1,4 @@
 pandas
-ploty
+ploty.express
 scipy
 streamlit
