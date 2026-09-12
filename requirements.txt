@@ -1,3 +1,4 @@
 pandas
+ploty
 scipy
 streamlit
